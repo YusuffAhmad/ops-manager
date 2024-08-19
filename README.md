@@ -147,4 +147,4 @@ The proposed solution includes a web application, a mobile application, and API 
 ### Setup Instructions
 1. **Clone the Repository**:
    ```bash
-   git https://github.com/techmonarch/Ops-Manager-New-Backend.git
+   git clone https://github.com/YusuffAhmad/ops-manager.git
