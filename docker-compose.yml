@@ -1,0 +1,24 @@
+version: '3.7'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: 'ops-manager'
+    ports:
+      - 8070:80
+    volumes:
+      - ./:/var/www/html
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "5434:1433"
+    environment:
+      - SA_PASSWORD=${DB_PASSWORD}
+      - ACCEPT_EULA=Y
+    volumes:
+      - ops-manager-sqldata:/var/opt/mssql/data
+    user: root
+volumes:
+  ops-manager-sqldata:
+    external: false
